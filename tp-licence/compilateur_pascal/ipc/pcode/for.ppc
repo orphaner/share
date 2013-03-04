@@ -1,0 +1,30 @@
+
+INT 2
+
+LDA 0
+LDI 1
+LDA 1
+LDI 2
+STO
+STO
+
+LDI 3
+CPI
+LDA 4
+CPA
+
+
+PRN
+PRl
+prn
+PRl
+prn
+PRl
+prn
+PRl
+prn
+PRl
+prn
+PRl
+
+HLT

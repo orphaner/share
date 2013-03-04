@@ -1,0 +1,8 @@
+int  10
+prs "{" #deo
+prl
+pRs "toto" # aff
+prl
+prc 'æ'
+prl
+prl

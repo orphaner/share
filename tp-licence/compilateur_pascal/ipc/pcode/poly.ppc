@@ -1,0 +1,60 @@
+# 0 : A
+# 1 : SMALLEST
+# 2 : LARGEST
+
+int 3  # réserve 3 emplacements en mémoire
+
+lda 0  # Empile &0 pr lire A
+inn    # Lecture de A
+
+lda 1  # Empile &1 pr affecter SMALLEST
+lda 0  # Empile l'adresse de A
+ldv    # Remplace l'adresse de A par sa valeur
+sto    # Remplace &1 par la valeur de A
+
+lda 2  # Empile &2 pr affecter LARGEST
+lda 0  # Empile l'adresse de A
+ldv    # Remplace l'adresse de A par sa valeur
+sto    # Remplace &2 par la valeur de A
+
+brr 23 # "lda 0  # Empile l'adresse de A" (après while)
+
+lda 0  # Empile l'adresse de A
+ldv    # Remplace l'adresse de A par sa valeur
+lda 2  # Empile l'adresse de LARGEST
+ldv    # Remplace l'adresse de LARGEST par sa valeur
+gtr    # A > LARGEST
+bzr 5  # Si test faux, on saute l'affectation
+lda 2  # Empile &2 pr affecter LARGEST
+lda 0  # Empile l'adresse de A
+ldv    # Remplace l'adresse de A par sa valeur
+sto    # Remplace &2 par la valeur de A
+
+lda 0  # Empile l'adresse de A
+ldv    # Remplace l'adresse de A par sa valeur
+lda 1  # Empile l'adresse de SMALLEST
+ldv    # Remplace l'adresse de SMALLEST par sa valeur
+lss    # A > SMALLEST
+bzr 5  # Si test faux, on saute 2 instructions pr la lecture de A
+lda 1  # Empile &1 pr affecter SMALLEST
+lda 0  # Empile l'adresse de A
+ldv    # Remplace l'adresse de A par sa valeur
+sto    # Remplace &1 par la valeur de A
+
+lda 0  # Empile &0 pr lire A
+inn    # Lecture de A
+
+lda 0  # Empile l'adresse de A
+ldv    # Remplace l'adresse de A par la valeur
+ldi 0  # Empile la valeur 0
+eql
+bzr -26# Début de la boucle
+
+lda 1  # Empile l'adresse de SMALLEST
+ldv    # Remplace l'adresse de SMALLEST par sa valeu
+prn    # Affiche la valeur de SMALLEST
+prl
+lda 2  # Empile l'adresse de LARGEST
+ldv    # Remplace l'adresse de LARGEST par sa valeu
+prn    # Affiche la valeur de LARGEST
+prl

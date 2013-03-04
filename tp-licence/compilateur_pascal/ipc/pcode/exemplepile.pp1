@@ -1,0 +1,26 @@
+int 5
+LDI 0
+LDI 10
+STO
+LDI 1
+LDI 11
+LDI 2
+LDI 12
+STO
+STO
+
+LDI 1
+LDV
+PRI  # affiche la valeur de sommet de pile (= p_var[1])
+LDI 2
+LDV
+prc c
+PRN  # affiche la valeur de sommet de pile
+PRN  # affiche la valeur de sommet de pile
+
+PRc b  # affiche un emplacement mémoire non-alloué (=0 )
+#PRN # affiche un emplacement mémoire non-alloué (=0 )
+#PRN # affiche la valeur stoqué en position 2 (=12)
+#PRN # affiche la valeur stoqué en position 1 (=11)
+#PRN # affiche la valeur stoqué en position 0 (=10)
+hlt

@@ -1,0 +1,18 @@
+int 0
+LDI 0
+LDI 1
+LDI 0
+BRN 6   # on passe a 6
+hlt
+PRI   # 6
+BZE 9   # on passe a 9 si 
+hlt
+PRI    # 9     
+BZE 25
+BRR 3   # now les relatifs # goto hlt
+BRR -4
+HLT
+LDI 0
+PRI 
+BZR -4  #goto BRR 2
+HLT

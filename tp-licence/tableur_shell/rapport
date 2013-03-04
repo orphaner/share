@@ -1,0 +1,41 @@
+Marche :
+- toutes les formules
+- les formules imbriquées
+- les références à celulle
+- affichage inversé
+- les display
+- inverse gère les feuilles de calcul où toutes les lignes n'ont pas le même
+  nombre de colones
+- le texte d'une formule peut contenir des parenthèses, car on sépare les
+  formules imbriquées suivant le nombre de virgules
+- domaine d'utilisation des diverses fonctions : ln sur R+* etc...
+- saisie utilisateur de la feuille (finir la saisie par "entrée" puis "ctrl d"
+
+
+Petits bugs :
+- inverse affiche le scout même après la dernière valeur de l'affichage
+- le texte d'une formule ne peut contenir une virgule (mais le texte 
+  d'une cellule oui)
+- certaines erreurs pourraient être plus précisément indiquées à l'utilisateur 
+  (erreurs dans imbrication de formules, ...)
+
+
+Principe de fonctionement :
+- appel à make_world pr lancer le calcul
+  -> Si il y a des displays :
+	* appel de parcours_display qui ne calcule que les zones de calcul
+	  concernées par les displays
+  -> Pas de display : 
+	* appel de parcours_feuille qui calcule la feuille entière
+
+- dans parcours_(feuille | display)
+  -> Appelle analyse_debut qui vérifie si formule à calculer 
+	* Appel à moteur
+     sinon
+	* affichage du contenu de la cellule
+
+- dans moteur : gestion récursive des formules
+  -> utilisation de grep pr savoir quelle formule on est entrain de traiter
+
+- enfin on récupère l'affichage de make_world
+  -> Divers cas (inverse, affichage écran ou ds un fichier)

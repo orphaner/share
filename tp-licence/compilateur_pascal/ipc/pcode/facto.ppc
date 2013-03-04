@@ -1,0 +1,37 @@
+#saisie de l'entier
+int 1 
+lda 0
+inn
+
+BRR 2
+hlt
+
+#test entier positif
+lda 0
+ldv
+ldi 0
+gtr
+bze 5 # HLT
+# int -1  # dépile le resultat (1) de gtr  !! non, bze a viré 1
+
+#init la pile pour la boucle (contiendra le résultat)
+lda 0
+ldv
+
+#boucle factorielle
+lda 0
+lda 0 
+ldv
+ldi 1
+sub   # décremente 
+sto
+lda 0
+ldv
+bzr +5 # si la décrementation est arrivée a 0 on sort de la boucle
+lda 0
+ldv    # bzr a dépilé, on reprend la valeur stoquée
+mul
+brr -12 # retourne au début de boucle
+#boucle  finie
+prn
+hlt
